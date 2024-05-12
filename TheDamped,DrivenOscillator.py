@@ -3,7 +3,7 @@
 
 # In[1]:
 
-
+#simulate the motion
 from vpython import *
 #creat
 dict={'angular_frequency':[],'time':[],'b.pos':[],'amplitude':[]}
@@ -87,22 +87,20 @@ while 10>wd>=2.2:
         count=count+1
 
 
-# In[2]:
 
+
+
+# In[2]:
+#process data
 
 import pandas as pd
-
-
-# In[3]:
-
-
 angular_frequency=list(map(float, dict['angular_frequency']))
 time=list(map(float,dict['time']))
 amplitude=list(map(float,dict['amplitude']))
 b_pos=list(map(float,dict['b.pos']))
 
 
-# In[4]:
+# In[3]:
 
 
 pd.set_option('display.max_columns',None)
@@ -110,7 +108,7 @@ pd.set_option('display.max_rows',None)
 pd.Series(b_pos)
 
 
-# In[5]:
+# In[4]:
 
 
 pd.set_option('display.max_columns',None)
@@ -118,7 +116,7 @@ pd.set_option('display.max_rows',None)
 pd.Series(angular_frequency)
 
 
-# In[6]:
+# In[5]:
 
 
 pd.set_option('display.max_columns',None)
@@ -126,7 +124,7 @@ pd.set_option('display.max_rows',None)
 pd.Series(time)
 
 
-# In[7]:
+# In[6]:
 
 
 pd.set_option('display.max_columns',None)
@@ -134,23 +132,23 @@ pd.set_option('display.max_rows',None)
 pd.Series(amplitude)
 
 
-# In[8]:
+# In[7]:
 
 
 import matplotlib.pyplot as plt
 import numpy as np
 
 
-# In[9]:
+# In[8]:
 
-
+#plot the graph
 plt.plot(time,b_pos, color='blue')
 plt.title('x-t',loc='center')
 plt.xlabel('time(s)',{'fontsize':12,'color':'black'})
 plt.ylabel('position of block(m)',{'fontsize':12,'color':'black'})
 
 
-# In[10]:
+# In[9]:
 
 
 plt.plot(angular_frequency,amplitude, color='red')
@@ -159,22 +157,22 @@ plt.xlabel('angular frequency of driving force(rad/s)',{'fontsize':12,'color':'b
 plt.ylabel('amplitude(m)',{'fontsize':12,'color':'black'})
 
 
-# In[11]:
+# In[10]:
 
 
 max(dict['amplitude'])
 
 
-# In[12]:
+# In[11]:
 
 
 test=(k/m)**(1/2)
 test
 
 
-# In[13]:
+# In[12]:
 
 
 print((dict['amplitude'])[866],(dict['angular_frequency'])[866])
-#切的不夠小 產生誤差
+#結論:切的不夠小 產生誤差
 
